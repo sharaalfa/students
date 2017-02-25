@@ -17,9 +17,9 @@ public class UserDao {
 
     private static Logger logger = Logger.getLogger(UserDao.class);
     private static final String SQL_FIND_USER =
-            "SELECT * FROM user WHERE user.login=? AND user.password=?;";
+            "SELECT * FROM \"user\" WHERE login=? AND password=?;";
     private static final String SQL_CREATE_USER =
-            "INSERT INTO user(`login`, `password`, `role`) " +
+            "INSERT INTO \"user\" (login, password, role) " +
                     "VALUES(?, ?, ?)";
 
     public static User getUserByLoginAndPassword(String login, String password) throws UserDaoException {
@@ -46,7 +46,7 @@ public class UserDao {
             logger.error(e);
             throw new UserDaoException();
         }
-        return null;
+        return user;
     }
 
     public static boolean registrationUser(String login, String password){

@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class RegistrationServlet extends HttpServlet {
 
-    private static Logger logger = Logger.getLogger(LoginServlet.class);
+    private static Logger logger = Logger.getLogger(RegistrationServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/registration.jsp").forward(req, resp);
@@ -22,7 +22,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.trace("on post");
+        logger.trace("REG on post");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if(UserService.registration(login, password)){
